@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 ThemeData theme() {
   return ThemeData(
     // primarySwatch: Colors.deepPurple,
-    primaryColor: Color(0x595FF7),
-    primaryColorDark: Color(0x595FF7),
-    primaryColorLight: Color(0x595FF7),
-    scaffoldBackgroundColor: Color(0x595FF7),
+    primaryColor: Color(0xFF595FF7),
+    primaryColorDark: Color(0xFF595FF7),
+    primaryColorLight: Color(0xFFF0F2F5),
   );
 }
