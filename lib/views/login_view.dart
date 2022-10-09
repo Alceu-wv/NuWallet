@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _LoginViewState extends State<LoginView> {
   final Map<String, String> _formData = {};
 
   @override
