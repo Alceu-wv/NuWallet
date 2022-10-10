@@ -1,41 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  Widget _firstLayer(context) {
-    return Column(
-      children: [
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.175,
-          color: const Color(0xFF595FF7),
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 15,
-              right: 35,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ElevatedButton(
-                  style: OutlinedButton.styleFrom(
-                      backgroundColor: const Color(0xFF2A253F)),
-                  child: const Text("Escolher Conta"),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            color: const Color(0xFF2A253F),
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _cardInOut(context, {bool? red}) {
     Color getColor() {
       if (red == null) {
@@ -156,6 +121,41 @@ class HomeView extends StatelessWidget {
         ));
   }
 
+  Widget _firstLayer(context) {
+    return Column(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.175,
+          color: const Color(0xFF595FF7),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 15,
+              right: 35,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  style: OutlinedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2A253F)),
+                  child: const Text("Escolher Conta"),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: const Color(0xFF2A253F),
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,16 +227,3 @@ class HomeView extends StatelessWidget {
         ));
   }
 }
-
-// Card(
-//     elevation: 10,
-//     color: Colors.amber,
-//     shape: RoundedRectangleBorder(
-//       borderRadius: BorderRadius.circular(10),
-//     ),
-//     child: const SizedBox(
-//       width: 300,
-//       height: 200,
-//       child:
-//           Center(child: Text('YoYo', style: TextStyle(fontSize: 50))),
-//     ))

@@ -10,6 +10,7 @@ class BlockButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 45,
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
           style: OutlinedButton.styleFrom(
