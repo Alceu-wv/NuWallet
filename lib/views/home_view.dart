@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeViewView extends StatelessWidget {
   Widget _cardInOut(context, {bool? red}) {
     Color getColor() {
       if (red == null) {
@@ -160,7 +160,16 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("NuWallet"),
+          title: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset(
+                    width: 35, height: 35, "assets/icons/bb_icon.png"),
+              ),
+              const Text("NuWallet"),
+            ],
+          ),
           backgroundColor: const Color(0xFF595FF7),
           elevation: 0,
           actions: <Widget>[

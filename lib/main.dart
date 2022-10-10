@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       title: 'NuWallet',
       theme: theme(),
       // home: NewBankAcount(),
-      home: const LoginView(title: "title"),
-      // home: HomeView(),
+      // home: const LoginView(title: "title"),
+      home: HomeViewView(),
     );
   }
 }
