@@ -1,6 +1,35 @@
 import 'package:flutter/material.dart';
 
+import '../data/menu_items.dart';
+
 class HomeViewView extends StatelessWidget {
+  _appBarMenu() {
+    PopupMenuItem _appBarItem(text) {
+      return PopupMenuItem(
+          child: Text(
+        text,
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ));
+    }
+
+    return [
+      PopupMenuButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        color: const Color(0xFF2A253F),
+        itemBuilder: (context) => [
+          _appBarItem("Perfil"),
+          _appBarItem("Resumo"),
+          _appBarItem("Cadastrar Banco"),
+          _appBarItem("Fatura Cartão"),
+          _appBarItem("Tema Claro"),
+          _appBarItem("Sair"),
+        ],
+      ),
+    ];
+  }
+
   Widget _cardInOut(context, {bool? red}) {
     Color getColor() {
       if (red == null) {
@@ -172,15 +201,17 @@ class HomeViewView extends StatelessWidget {
           ),
           backgroundColor: const Color(0xFF595FF7),
           elevation: 0,
-          actions: <Widget>[
-            Padding(
-                padding: const EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: const Icon(Icons.menu),
-                )),
-          ],
+          actions: _appBarMenu(),
         ),
+
+        // <Widget>[
+        //   Padding(
+        //       padding: const EdgeInsets.only(right: 20.0),
+        //       child: GestureDetector(
+        //         onTap: () {},
+        //         child: const Icon(Icons.menu),
+        //       )),
+        // ],
         body: Stack(
           children: [
             _firstLayer(context),
@@ -217,7 +248,7 @@ class HomeViewView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child:
                           ListView(scrollDirection: Axis.vertical, children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         _cardStatement(context, true),
