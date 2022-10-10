@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key, required this.title});
@@ -11,6 +12,50 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final Map<String, String> _formData = {};
+
+  Widget _loginButtons() {
+    Widget _button(providerName, img) {
+      return SizedBox(
+        height: 45,
+        width: MediaQuery.of(context).size.width * 0.7,
+        child: ElevatedButton(
+          onPressed: () {
+            debugPrint('Login $providerName Received click');
+          },
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.white)),
+          child: Row(
+            children: [
+              Expanded(
+                  flex: 1,
+                  child: Padding(padding: EdgeInsets.all(4.0), child: img)),
+              Expanded(
+                flex: 6,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Login $providerName',
+                    style: const TextStyle(fontSize: 13, color: Colors.black),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _button("Google", Image.asset("assets/icons/google_icon.png")),
+        const SizedBox(
+          height: 12,
+        ),
+        _button("Apple", Image.asset("assets/icons/apple_icon.png")),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,45 +70,14 @@ class _LoginViewState extends State<LoginView> {
               const SizedBox(),
               const Text(
                 "Nu Wallet",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20),
+                style: TextStyle(color: Colors.white, fontSize: 30),
               ),
-              SizedBox(
-                width: 200,
-                child: Image.asset("assets/images/nubank.png"),
-              ),
+              SvgPicture.asset("assets/images/login.svg"),
               Container(
-                color: const Color(0xFF595FF7),
-                width: double.infinity,
-                height: 240,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          debugPrint('Login Google Received click');
-                        },
-                        label: const Text('Login Google'),
-                        icon: const Icon(Icons.account_circle_outlined),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          debugPrint('Login Apple Received click');
-                        },
-                        label: const Text('Login Apple'),
-                        icon: const Icon(Icons.account_circle_outlined),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  color: const Color(0xFF595FF7),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.31,
+                  child: _loginButtons()),
             ],
           )),
     );

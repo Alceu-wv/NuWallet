@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'NuWallet',
       theme: theme(),
-      home: NewBankAcount(),
-      // home: const LoginView(title: "title"),
+      // home: NewBankAcount(),
+      home: const LoginView(title: "title"),
       // home: HomeView(),
     );
   }
